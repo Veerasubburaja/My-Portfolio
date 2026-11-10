@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Veera Subbu Raja M – Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF2F7; --surface:#FFFFFF; --ink:#14213D; --muted:#51607A; --line:#D3DBE8;
+  --accent:#2F5BEA; --accent-ink:#FFFFFF; --amber:#E89A1F; --soft:#E1E8F5;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1626; --surface:#17213A; --ink:#E6ECF8; --muted:#9AA8C4; --line:#2A3757;
+    --accent:#7C9BFF; --accent-ink:#0F1626; --amber:#F2B85B; --soft:#1F2B4A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1626; --surface:#17213A; --ink:#E6ECF8; --muted:#9AA8C4; --line:#2A3757;
+  --accent:#7C9BFF; --accent-ink:#0F1626; --amber:#F2B85B; --soft:#1F2B4A; color-scheme:dark;
+}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:60px}
+.logo{font:800 1.15rem var(--display);text-decoration:none;letter-spacing:-.01em}
+.nav nav{display:flex;gap:1.25rem;align-items:center;overflow-x:auto}
+.nav nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem;white-space:nowrap}
+.nav nav a:hover{color:var(--accent)}
+.theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:.3rem .8rem;font:500 .85rem var(--body);cursor:pointer}
+.theme:hover{border-color:var(--accent)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center;padding:clamp(2.5rem,7vw,4.5rem) 0 3.5rem}
+.hero .facts{grid-column:1/-1;margin-top:1rem}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.75rem}
+.side .avatar{width:64px;height:64px;border-radius:16px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:800 1.5rem var(--display);margin-bottom:1rem}
+.side .row{padding:.8rem 0;border-top:1px solid var(--line);font-weight:500}
+.side .row span{display:block;color:var(--muted);font-size:.85rem;font-weight:400}
+.hero h1{font:800 clamp(2.4rem,6.5vw,4.8rem)/1 var(--display);letter-spacing:-.035em;margin:0 0 1.25rem}
+.hero .role{font:500 1.2rem var(--display);color:var(--accent);margin:0 0 1.5rem}
+.hero p.lead{max-width:62ch;color:var(--muted);margin:0 0 2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.75rem 1.3rem;border-radius:10px;font-weight:500;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+.facts{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.facts div{min-width:8rem}
+.facts b{display:block;font:700 1.6rem var(--display)}
+.facts span{color:var(--muted);font-size:.9rem}
+
+section{padding:3.5rem 0}
+h2{font:700 clamp(1.7rem,4vw,2.3rem)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 2rem}
+
+/* projects explorer */
+.explorer{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:1.5rem;align-items:start}
+.tabs{display:flex;flex-direction:column;gap:.5rem}
+.tab{text-align:left;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--line);color:var(--ink);padding:.8rem 1rem;border-radius:10px;font:500 .98rem/1.3 var(--body);cursor:pointer}
+.tab:hover{border-color:var(--accent)}
+.tab[aria-selected="true"]{border-color:var(--accent);border-left-color:var(--amber);background:var(--soft)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.75rem}
+.panel h3{font:700 1.6rem/1.15 var(--display);margin:0 0 .5rem;letter-spacing:-.015em}
+.panel .sum{color:var(--muted);margin:0 0 1.25rem;max-width:62ch}
+.panel ul{margin:0 0 1.25rem;padding-left:1.2rem}
+.panel li{margin:.35rem 0}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{background:var(--soft);border-radius:6px;padding:.2rem .6rem;font-size:.88rem;font-weight:500}
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.5rem;margin:0 0 1.25rem}
+.mods span{border:1px dashed var(--accent);border-radius:8px;padding:.4rem .6rem;font-size:.9rem;text-align:center}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem}
+.skill h3{font:700 1.05rem var(--display);margin:0 0 .75rem}
+
+/* experience */
+.tl{border-left:2px solid var(--line);margin-left:.4rem;padding-left:1.5rem}
+.job{position:relative;margin-bottom:2rem}
+.job::before{content:"";position:absolute;left:calc(-1.5rem - 7px);top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--amber);border:2px solid var(--bg)}
+.job h3{font:700 1.25rem var(--display);margin:0}
+.job .meta{color:var(--muted);font-size:.95rem;margin:.1rem 0 .6rem}
+.job ul{margin:0;padding-left:1.1rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.two h3{font:700 1.25rem var(--display);margin:0 0 1rem}
+.edu p{margin:0 0 .9rem}
+.edu small,.cert small{color:var(--muted)}
+.cert ul{margin:0;padding-left:1.1rem}
+.cert li{margin:.45rem 0}
+
+.contact{background:var(--ink);color:var(--bg);border-radius:18px;padding:2.5rem}
+.contact h2{margin-bottom:.75rem}
+.contact p{margin:0 0 1.5rem;max-width:55ch;opacity:.85}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn.primary{background:var(--amber);border-color:var(--amber);color:#14213D}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
+
+@media (max-width:720px){
+  .explorer{grid-template-columns:1fr}
+  .tabs{flex-direction:row;overflow-x:auto;padding-bottom:.25rem}
+  .tab{white-space:nowrap}
+  .hero{padding-top:3rem}
+  .nav nav a.hide-sm{display:none}
+}
+.toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:.7rem 1.1rem;border-radius:10px;font-weight:500;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:40;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%)}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .side{max-width:480px}
+}
+@media (max-width:480px){
+  body{font-size:1rem}
+  .facts{gap:1.25rem}
+  .facts div{min-width:calc(50% - .75rem)}
+  .panel,.contact{padding:1.25rem}
+  .btn{width:100%;text-align:center}
+  .logo{font-size:1rem}
+  .nav nav{gap:.8rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Veera Subbu Raja</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a class="hide-sm" href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-main">
+      <h1>Veera Subbu Raja M</h1>
+      <p class="role">Full Stack Developer · Java, Spring Boot, React, Node.js</p>
+      <p class="lead">I build web applications from the database to the screen: REST APIs, role-based access, and clean interfaces. I’m a Computer Science graduate with over a year of hands-on work, and I use AI tools like Claude, ChatGPT and Gemini to prototype and debug faster.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn" href="mailto:veerasubburajam@gmail.com" data-copy="veerasubburajam@gmail.com">Email me</a>
+      </div>
+      </div>
+      <aside class="side" aria-label="Quick info">
+        <div class="avatar" aria-hidden="true">VS</div>
+        <div class="row"><span>Working at</span>Neural Schema IT, Ambasamudram</div>
+        <div class="row"><span>Based in</span>Tirunelveli District, Tamil Nadu</div>
+        <div class="row"><span>Education</span>Bachelor of Computer Science</div>
+        <div class="row"><span>Looking for</span>Full Stack Developer roles</div>
+      </aside>
+      <div class="facts">
+        <div><b>1+ year</b><span>building full stack apps</span></div>
+        <div><b>6 technologies</b><span>Java, Spring Boot, Node.js, React, MongoDB, MySQL</span></div>
+        <div><b>5 projects</b><span>HRMS, booking, inventory, billing, chit fund</span></div>
+      </div>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="explorer">
+        <div class="tabs" role="tablist" aria-label="Projects" id="tabs"></div>
+        <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h3>Languages</h3><div class="chips"><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">Python</span></div></div>
+        <div class="skill"><h3>Frontend</h3><div class="chips"><span class="chip">React</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div></div>
+        <div class="skill"><h3>Backend</h3><div class="chips"><span class="chip">Spring Boot</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">Flask</span><span class="chip">REST APIs</span></div></div>
+        <div class="skill"><h3>Databases</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">MongoDB</span></div></div>
+        <div class="skill"><h3>Concepts</h3><div class="chips"><span class="chip">Micro-frontends</span><span class="chip">RBAC</span><span class="chip">Authentication</span><span class="chip">Data structures</span><span class="chip">POC development</span></div></div>
+        <div class="skill"><h3>Tools</h3><div class="chips"><span class="chip">VS Code</span><span class="chip">Eclipse</span><span class="chip">MySQL Workbench</span><span class="chip">Linux</span><span class="chip">Windows</span></div></div>
+        <div class="skill"><h3>AI-assisted coding</h3><div class="chips"><span class="chip">Claude</span><span class="chip">ChatGPT</span><span class="chip">Gemini</span><span class="chip">Antigravity</span><span class="chip">Windsurf</span></div></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="tl">
+        <div class="job">
+          <h3>Full Stack Developer</h3>
+          <p class="meta">Neural Schema IT, Ambasamudram (onsite) · June 2025 – present</p>
+          <ul>
+            <li>Build full stack applications with Java, Spring Boot, Node.js, React, MongoDB and MySQL.</li>
+            <li>Ship features end to end, from backend REST APIs to frontend integration.</li>
+            <li>Prototype proofs of concept to test new technologies and validate feature ideas.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Frontend Developer Intern</h3>
+          <p class="meta">Fnex Solution, Coimbatore (remote) · May – June 2025</p>
+          <ul>
+            <li>Created responsive web pages with HTML, CSS, JavaScript and React.</li>
+            <li>Worked with the team to refine UI/UX and fix bugs.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="two">
+        <div class="edu">
+          <h3>Education</h3>
+          <p><b>Bachelor of Computer Science</b><br>Manonmaniam Sundaranar University<br><small>2021 – 2024 · CGPA 7.14</small></p>
+          <p><b>Higher Secondary (12th), Computer Science</b><br>P.L.W.A. Higher Secondary School<br><small>2020 – 2021 · 70%</small></p>
+          <p><b>Secondary School (10th)</b><br>P.L.W.A. Higher Secondary School<br><small>2018 – 2019 · 61%</small></p>
+        </div>
+        <div class="cert">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Java Full-Stack Development Course<br><small>Greens Technology, 2024</small></li>
+            <li>Foundation in Coding and Cloud Program<br><small>IBM SkillsBuild, Edunet, TNSDC, 2024</small></li>
+            <li>Cyber Security and Digital Safety Essentials<br><small>Naan Mudhalvan</small></li>
+            <li>Microsoft Excel Advanced Level<br><small>Naan Mudhalvan</small></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <h2>Let’s work together</h2>
+        <p>I’m looking for a Full Stack Developer role where I can build scalable, reliable applications with a collaborative team.</p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:veerasubburajam@gmail.com" data-copy="veerasubburajam@gmail.com">veerasubburajam@gmail.com</a>
+          <a class="btn" href="tel:+919342426390" data-copy="+91 93424 26390">+91 93424 26390</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap">Based in Tirunelveli District, Tamil Nadu, India.</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+var projects=[
+ {n:"HRMS",t:"Human Resource Management System",s:"A web-based HR application on a micro-frontend architecture. It manages employee information and HR operations in an organization-based structure.",
+  mods:["Employee","Client","Project","Work Item","Timesheet","Leave","Attendance","Opportunity","Vault"],
+  b:["Delivered 9 connected modules through REST APIs and database operations.","Enforced role-based access control and organization-level permissions, so each organization sees only its own data."],
+  k:["Micro-frontend","RBAC","REST APIs"]},
+ {n:"Theater booking",t:"Theater Movie Booking and Distribution Management",s:"A web application that runs the movie booking and distribution process for theaters, from selecting a movie to the final bill.",
+  b:["Digitized a 5-step workflow: IMDb movie search, theater booking requests, contract signing, box office collection records, and invoice generation.","Streamlined the process to improve operational efficiency and tracking."],
+  k:["Workflow","Invoicing","IMDb search"]},
+ {n:"Asset inventory",t:"Barcode-Based Asset Inventory Management",s:"An application where users scan an asset’s barcode, see its details, and send the data to an inventory management system.",
+  b:["Cut manual data entry.","Sped up asset tracking."],k:["Barcode scanning","Inventory"]},
+ {n:"Mall billing",t:"Mall Billing Management System",s:"A real-time billing system covering product sales, billing and inventory, with a simple UI for billing and product management.",
+  b:["Added create, update and delete for products.","Automated bill generation with totals and tax handling.","Stored product details and transaction records in the database.","Increased billing speed and reduced manual errors."],k:["CRUD","Billing","Backend APIs"]},
+ {n:"Chit fund",t:"Chit Fund Management System",s:"A web application to manage customer registrations, chit groups and monthly payments.",
+  b:["Set up and ran multiple chit schemes.","Tracked customer contributions, due amounts and payment history.","Secure authentication for admins and users.","CRUD for customers, chit groups and payments, backed by transaction APIs.","Improved accuracy and reduced manual effort."],k:["Authentication","CRUD","Payments"]}
+];
+var tabs=document.getElementById("tabs"),panel=document.getElementById("panel");
+function show(i){
+  var p=projects[i];
+  Array.prototype.forEach.call(tabs.children,function(b,j){b.setAttribute("aria-selected",j===i?"true":"false")});
+  var h="<h3>"+p.t+"</h3><p class='sum'>"+p.s+"</p>";
+  if(p.mods){h+="<div class='mods'>"+p.mods.map(function(m){return "<span>"+m+"</span>"}).join("")+"</div>"}
+  h+="<ul>"+p.b.map(function(x){return "<li>"+x+"</li>"}).join("")+"</ul>";
+  h+="<div class='chips'>"+p.k.map(function(x){return "<span class='chip'>"+x+"</span>"}).join("")+"</div>";
+  panel.innerHTML=h;
+}
+projects.forEach(function(p,i){
+  var b=document.createElement("button");
+  b.type="button";b.className="tab";b.setAttribute("role","tab");b.textContent=p.n;
+  b.onclick=function(){show(i)};tabs.appendChild(b);
+});
+show(0);
+
+var toastEl=document.getElementById("toast"),tt;
+function toast(m){toastEl.textContent=m;toastEl.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove("show")},2600)}
+var inFrame=false;try{inFrame=window.self!==window.top}catch(e){inFrame=true}
+Array.prototype.forEach.call(document.querySelectorAll("a[data-copy]"),function(a){
+  a.addEventListener("click",function(e){
+    if(!inFrame)return;
+    e.preventDefault();
+    var v=a.getAttribute("data-copy");
+    try{navigator.clipboard.writeText(v).then(function(){toast(v+" copied")},function(){toast("Contact: "+v)})}catch(x){toast("Contact: "+v)}
+  });
+});
+var root=document.documentElement,btn=document.getElementById("theme");
+try{var saved=localStorage.getItem("theme");if(saved)root.setAttribute("data-theme",saved)}catch(e){}
+btn.onclick=function(){
+  var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);
+  var next=dark?"light":"dark";
+  root.setAttribute("data-theme",next);
+  try{localStorage.setItem("theme",next)}catch(e){}
+};
+</script>
+</body>
+</html>
